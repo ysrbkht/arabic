@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>صیغه‌های چهارده‌گانه فعل ماضی — یاسر بختیار</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Scheherazade+New:wght@500;700&family=Vazirmatn:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-page: #f5f2eb;
+            --bg-card: #ffffff;
+            --gold-light: #856812;
+            --gold-main: #b48a1e;
+            --gold-dark: #785a0e;
+            --emerald-accent: #047857;
+            --rose-accent: #be123c;
+            --text-main: #0f172a;
+            --text-meaning: #334155;
+            --text-dim: #64748b;
+            --border-glow: rgba(180, 138, 30, 0.38);
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: 'Vazirmatn', sans-serif;
+            background-color: var(--bg-page);
+            background-image:
+                radial-gradient(circle at 12% 12%, rgba(212, 175, 55, 0.12) 0%, transparent 45%),
+                radial-gradient(circle at 88% 88%, rgba(4, 120, 87, 0.06) 0%, transparent 45%);
+            color: var(--text-main);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 1.75rem 1rem;
+        }
+        .toolbar {
+            max-width: 1280px;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+            padding: 0 0.5rem;
+            gap: 0.6rem;
+            flex-wrap: wrap;
+        }
+        .toolbar-brand {
+            display: flex; align-items: center; gap: 0.6rem;
+            font-size: 0.9rem; color: var(--text-dim); font-weight: 600;
+        }
+        .toolbar-brand span.dot {
+            width: 10px; height: 10px; border-radius: 50%; background: var(--gold-main);
+        }
+        .toolbar-actions { display: flex; gap: 0.6rem; flex-wrap: wrap; }
+        .btn {
+            background: var(--bg-card);
+            border: 1px solid var(--border-glow);
+            color: var(--text-main);
+            font-family: 'Vazirmatn', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 600;
+            padding: 0.5rem 1.15rem;
+            border-radius: 999px;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.45rem;
+            transition: all 0.2s ease;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+            text-decoration: none;
+        }
+        .btn:hover {
+            border-color: var(--gold-main);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 18px rgba(180, 138, 30, 0.18);
+        }
+        .poster-board {
+            max-width: 1280px; width: 100%;
+            background: var(--bg-card);
+            border: 1.5px solid var(--border-glow);
+            border-radius: 28px;
+            padding: 3rem 2.5rem 2.25rem;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(15, 23, 42, 0.07);
+        }
+        .corner-ornament { position: absolute; width: 70px; height: 70px; pointer-events: none; opacity: 0.45; }
+        .corner-tl { top: 14px; left: 14px; border-top: 2px solid var(--gold-main); border-left: 2px solid var(--gold-main); border-top-left-radius: 16px; }
+        .corner-tr { top: 14px; right: 14px; border-top: 2px solid var(--gold-main); border-right: 2px solid var(--gold-main); border-top-right-radius: 16px; }
+        .corner-bl { bottom: 14px; left: 14px; border-bottom: 2px solid var(--gold-main); border-left: 2px solid var(--gold-main); border-bottom-left-radius: 16px; }
+        .corner-br { bottom: 14px; right: 14px; border-bottom: 2px solid var(--gold-main); border-right: 2px solid var(--gold-main); border-bottom-right-radius: 16px; }
+        .poster-header { text-align: center; margin-bottom: 2.75rem; }
+        .badge-top {
+            display: inline-flex; align-items: center; gap: 0.5rem;
+            padding: 0.35rem 1.15rem; border-radius: 999px;
+            background: rgba(180, 138, 30, 0.1);
+            border: 1px solid rgba(180, 138, 30, 0.3);
+            color: var(--gold-light); font-size: 0.85rem; font-weight: 600;
+            margin-bottom: 0.9rem;
+        }
+        .poster-title {
+            font-size: 2.15rem; font-weight: 800;
+            background: linear-gradient(135deg, #0f172a 0%, #856812 60%, #b48a1e 100%);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            margin-bottom: 0.7rem;
+        }
+        .poster-subtitle {
+            color: var(--text-dim); font-size: 0.9rem;
+            display: flex; justify-content: center; align-items: center;
+            gap: 1.35rem; flex-wrap: wrap;
+        }
+        .legend-item { display: inline-flex; align-items: center; gap: 0.4rem; font-size: 0.82rem; }
+        .legend-dot { width: 9px; height: 9px; border-radius: 50%; }
+        .sarf-main-grid {
+            display: grid; grid-template-columns: 1fr 1fr;
+            gap: 2rem; margin-bottom: 2.25rem;
+        }
+        .sarf-column { display: flex; flex-direction: column; gap: 1.85rem; }
+        .category-card {
+            background: #faf9f5;
+            border: 1px solid rgba(15, 23, 42, 0.09);
+            border-radius: 22px;
+            padding: 1.35rem 1.4rem;
+            display: flex; align-items: center; justify-content: space-between;
+            transition: all 0.25s ease;
+        }
+        .category-card:hover {
+            border-color: var(--border-glow);
+            box-shadow: 0 10px 25px rgba(15, 23, 42, 0.06);
+        }
+        .col-ghaib .category-card { flex-direction: row; }
+        .col-mukhatab .category-card { flex-direction: row-reverse; }
+        .category-title-box {
+            min-width: 105px; text-align: center;
+            display: flex; flex-direction: column;
+            align-items: center; gap: 0.35rem;
+        }
+        .category-title-ar { font-size: 1.2rem; font-weight: 800; color: var(--gold-light); }
+        .category-badge {
+            font-size: 0.72rem; padding: 0.15rem 0.6rem;
+            border-radius: 99px;
+            background: rgba(180, 138, 30, 0.12);
+            color: var(--gold-dark);
+            border: 1px solid rgba(180, 138, 30, 0.25);
+        }
+        .curly-brace-svg { width: 34px; height: 235px; flex-shrink: 0; margin: 0 0.55rem; }
+        .curly-brace-svg path { fill: none; stroke: url(#goldGrad); stroke-width: 2.6; stroke-linecap: round; }
+        .verbs-list { flex: 1; display: flex; flex-direction: column; gap: 0.75rem; }
+        .verb-row {
+            display: flex; align-items: center; justify-content: space-between;
+            background: #ffffff;
+            border: 1px solid rgba(15, 23, 42, 0.08);
+            padding: 0.45rem 1rem;
+            border-radius: 14px;
+            gap: 0.75rem;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.02);
+            transition: all 0.2s ease;
+        }
+        .verb-row:hover { border-color: var(--gold-main); background: rgba(180, 138, 30, 0.04); }
+        .col-mukhatab .verb-row { flex-direction: row-reverse; }
+        .verb-word {
+            font-family: 'Scheherazade New', serif;
+            font-size: 2.55rem; font-weight: 700;
+            line-height: 1.35; color: var(--text-main);
+            padding: 0 0.2rem; white-space: nowrap;
+            text-rendering: optimizeLegibility;
+            font-feature-settings: "kern" 1, "liga" 1, "mkmk" 1, "mark" 1;
+        }
+        .suffix-pronoun { color: var(--emerald-accent); }
+        .suffix-feminine { color: var(--rose-accent); }
+        .verb-info {
+            display: flex; align-items: center; justify-content: space-between;
+            flex: 1; gap: 0.6rem;
+            border-right: 2px solid rgba(180, 138, 30, 0.25);
+            padding-right: 0.85rem;
+        }
+        .col-mukhatab .verb-info {
+            flex-direction: row-reverse;
+            border-right: none;
+            border-left: 2px solid rgba(180, 138, 30, 0.25);
+            padding-right: 0; padding-left: 0.85rem;
+        }
+        .meaning-text { font-size: 0.92rem; font-weight: 600; color: var(--text-meaning); line-height: 1.4; }
+        .verb-badges { display: flex; align-items: center; gap: 0.4rem; flex-shrink: 0; }
+        .meta-tag {
+            font-size: 0.7rem; color: var(--text-dim);
+            background: rgba(15, 23, 42, 0.05);
+            padding: 0.18rem 0.5rem; border-radius: 6px;
+        }
+        .sigha-num {
+            width: 23px; height: 23px; border-radius: 50%;
+            background: rgba(180, 138, 30, 0.14);
+            border: 1px solid rgba(180, 138, 30, 0.4);
+            color: var(--gold-dark);
+            font-size: 0.72rem; font-weight: 700;
+            display: inline-flex; align-items: center; justify-content: center;
+        }
+        .mutakallim-wrapper { display: flex; justify-content: center; }
+        .mutakallim-card { width: 62%; min-width: 480px; }
+        .mutakallim-card .curly-brace-svg { height: 155px; }
+        .poster-footer {
+            margin-top: 2.5rem; padding-top: 1.25rem;
+            border-top: 1px dashed rgba(180, 138, 30, 0.35);
+            display: flex; justify-content: space-between; align-items: center;
+            font-size: 0.85rem; color: var(--text-dim);
+            flex-wrap: wrap; gap: 1rem;
+        }
+        .author-badge {
+            display: inline-flex; align-items: center; gap: 0.65rem;
+            background: linear-gradient(135deg, rgba(180, 138, 30, 0.12), rgba(180, 138, 30, 0.03));
+            border: 1px solid var(--gold-main);
+            padding: 0.45rem 1.15rem; border-radius: 14px;
+            box-shadow: 0 4px 12px rgba(180, 138, 30, 0.1);
+        }
+        .author-badge .pen-icon { color: var(--gold-main); font-size: 1.1rem; }
+        .author-badge .author-details { display: flex; flex-direction: column; line-height: 1.3; }
+        .author-badge .author-role { font-size: 0.68rem; color: var(--text-dim); font-weight: 400; }
+        .author-badge .author-name { font-size: 0.98rem; font-weight: 800; color: var(--gold-dark); letter-spacing: 0.2px; }
+        @media (max-width: 1040px) {
+            .sarf-main-grid { grid-template-columns: 1fr; }
+            .col-mukhatab .category-card,
+            .col-mukhatab .verb-row,
+            .col-mukhatab .verb-info { flex-direction: row; }
+            .col-mukhatab .verb-info {
+                border-left: none;
+                border-right: 2px solid rgba(180, 138, 30, 0.25);
+                padding-left: 0; padding-right: 0.85rem;
+            }
+            .col-mukhatab .curly-brace-svg { transform: scaleX(1) !important; }
+            .mutakallim-card { width: 100%; min-width: unset; }
+            .poster-board { padding: 2rem 1.15rem; }
+            .poster-footer { flex-direction: column; text-align: center; }
+        }
+        @media print {
+            body { background: #fff !important; padding: 0; }
+            .toolbar { display: none !important; }
+            .poster-board { box-shadow: none !important; border: 2px solid #b48a1e !important; }
+        }
+    </style>
+</head>
+<body>
+
+    <svg width="0" height="0" style="position:absolute">
+        <defs>
+            <linearGradient id="goldGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stop-color="#d4af37" />
+                <stop offset="50%" stop-color="#b48a1e" />
+                <stop offset="100%" stop-color="#785a0e" />
+            </linearGradient>
+        </defs>
+    </svg>
+
+    <div class="toolbar">
+        <div class="toolbar-brand">
+            <span class="dot"></span>
+            <span>لوح آموزشی علم صرف • تصریف فعل ماضی با ترجمه</span>
+        </div>
+        <div class="toolbar-actions">
+            <a class="btn" href="../index.html" title="بازگشت به فهرست">🏠 فهرست</a>
+            <button class="btn" onclick="window.print()">
+                <span>🖨️</span>
+                <span>چاپ / ذخیره PDF</span>
+            </button>
+        </div>
+    </div>
+
+    <div class="poster-board">
+        <div class="corner-ornament corner-tl"></div>
+        <div class="corner-ornament corner-tr"></div>
+        <div class="corner-ornament corner-bl"></div>
+        <div class="corner-ornament corner-br"></div>
+
+        <header class="poster-header">
+            <div class="badge-top">📚 قواعد علم صرف • صیغه‌های فعل ماضی معلوم</div>
+            <h1 class="poster-title">هر فعل دارای ۱۴ صیغه می‌باشد</h1>
+            <div class="poster-subtitle">
+                <span class="legend-item"><span class="legend-dot" style="background: var(--text-main);"></span>ماده اصلی فعل (ضَرَب)</span>
+                <span class="legend-item"><span class="legend-dot" style="background: var(--emerald-accent);"></span>ضمایر فاعلی بارز</span>
+                <span class="legend-item"><span class="legend-dot" style="background: var(--rose-accent);"></span>تاء تأنیث ساکنه</span>
+            </div>
+        </header>
+
+        <div class="sarf-main-grid">
+            <div class="sarf-column col-ghaib">
+                <div class="category-card">
+                    <div class="category-title-box">
+                        <span class="category-title-ar">مذکر غایب</span>
+                        <span class="category-badge">۳ صیغه</span>
+                    </div>
+                    <svg class="curly-brace-svg" viewBox="0 0 40 200" preserveAspectRatio="none">
+                        <path d="M 8 6 C 24 6, 20 35, 20 82 C 20 95, 26 100, 34 100 C 26 100, 20 105, 20 118 C 20 165, 24 194, 8 194" />
+                    </svg>
+                    <div class="verbs-list">
+                        <div class="verb-row">
+                            <div class="verb-word" dir="rtl">ضَرَبَ</div>
+                            <div class="verb-info">
+                                <span class="meaning-text">زد آن یک مرد</span>
+                                <div class="verb-badges">
+                                    <span class="meta-tag">مفرد</span>
+                                    <span class="sigha-num">۱</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="verb-row">
+                            <div class="verb-word" dir="rtl">ضَرَبَ<span class="suffix-pronoun">ا</span></div>
+                            <div class="verb-info">
+                                <span class="meaning-text">زدند آن دو مردان</span>
+                                <div class="verb-badges">
+                                    <span class="meta-tag">مثنی</span>
+                                    <span class="sigha-num">۲</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="verb-row">
+                            <div class="verb-word" dir="rtl">ضَرَبُ<span class="suffix-pronoun">وا</span></div>
+                            <div class="verb-info">
+                                <span class="meaning-text">زدند آن همه مردان</span>
+                                <div class="verb-badges">
+                                    <span class="meta-tag">جمع</span>
+                                    <span class="sigha-num">۳</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="category-card">
+                    <div class="category-title-box">
+                        <span class="category-title-ar">مؤنث غایب</span>
+                        <span class="category-badge">۳ صیغه</span>
+                    </div>
+                    <svg class="curly-brace-svg" viewBox="0 0 40 200" preserveAspectRatio="none">
+                        <path d="M 8 6 C 24 6, 20 35, 20 82 C 20 95, 26 100, 34 100 C 26 100, 20 105, 20 118 C 20 165, 24 194, 8 194" />
+                    </svg>
+                    <div class="verbs-list">
+                        <div class="verb-row">
+                            <div class="verb-word" dir="rtl">ضَرَبَ<span class="suffix-feminine">تْ</span></div>
+                            <div class="verb-info">
+                                <span class="meaning-text">زد آن یک زن</span>
+                                <div class="verb-badges">
+                                    <span class="meta-tag">مفرد</span>
+                                    <span class="sigha-num">۴</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="verb-row">
+                            <div class="verb-word" dir="rtl">ضَرَبَ<span class="suffix-feminine">تَ</span><span class="suffix-pronoun">ا</span></div>
+                            <div class="verb-info">
+                                <span class="meaning-text">زدند آن دو زنان</span>
+                                <div class="verb-badges">
+                                    <span class="meta-tag">مثنی</span>
+                                    <span class="sigha-num">۵</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="verb-row">
+                            <div class="verb-word" dir="rtl">ضَرَبْ<span class="suffix-pronoun">نَ</span></div>
+                            <div class="verb-info">
+                                <span class="meaning-text">زدند آن همه زنان</span>
+                                <div class="verb-badges">
+                                    <span class="meta-tag">جمع</span>
+                                    <span class="sigha-num">۶</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sarf-column col-mukhatab">
+                <div class="category-card">
+                    <div class="category-title-box">
+                        <span class="category-title-ar">مذکر مخاطب</span>
+                        <span class="category-badge">۳ صیغه</span>
+                    </div>
+                    <svg class="curly-brace-svg" style="transform: scaleX(-1);" viewBox="0 0 40 200" preserveAspectRatio="none">
+                        <path d="M 8 6 C 24 6, 20 35, 20 82 C 20 95, 26 100, 34 100 C 26 100, 20 105, 20 118 C 20 165, 24 194, 8 194" />
+                    </svg>
+                    <div class="verbs-list">
+                        <div class="verb-row">
+                            <div class="verb-word" dir="rtl">ضَرَبْ<span class="suffix-pronoun">تَ</span></div>
+                            <div class="verb-info">
+                                <span class="meaning-text">زدی تو یک مرد</span>
+                                <div class="verb-badges">
+                                    <span class="meta-tag">مفرد</span>
+                                    <span class="sigha-num">۷</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="verb-row">
+                            <div class="verb-word" dir="rtl">ضَرَبْ<span class="suffix-pronoun">تُمَا</span></div>
+                            <div class="verb-info">
+                                <span class="meaning-text">زدید شما دو مردان</span>
+                                <div class="verb-badges">
+                                    <span class="meta-tag">مثنی</span>
+                                    <span class="sigha-num">۸</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="verb-row">
+                            <div class="verb-word" dir="rtl">ضَرَبْ<span class="suffix-pronoun">تُمْ</span></div>
+                            <div class="verb-info">
+                                <span class="meaning-text">زدید شما همه مردان</span>
+                                <div class="verb-badges">
+                                    <span class="meta-tag">جمع</span>
+                                    <span class="sigha-num">۹</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="category-card">
+                    <div class="category-title-box">
+                        <span class="category-title-ar">مؤنث مخاطب</span>
+                        <span class="category-badge">۳ صیغه</span>
+                    </div>
+                    <svg class="curly-brace-svg" style="transform: scaleX(-1);" viewBox="0 0 40 200" preserveAspectRatio="none">
+                        <path d="M 8 6 C 24 6, 20 35, 20 82 C 20 95, 26 100, 34 100 C 26 100, 20 105, 20 118 C 20 165, 24 194, 8 194" />
+                    </svg>
+                    <div class="verbs-list">
+                        <div class="verb-row">
+                            <div class="verb-word" dir="rtl">ضَرَبْ<span class="suffix-pronoun">تِ</span></div>
+                            <div class="verb-info">
+                                <span class="meaning-text">زدی تو یک زن</span>
+                                <div class="verb-badges">
+                                    <span class="meta-tag">مفرد</span>
+                                    <span class="sigha-num">۱۰</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="verb-row">
+                            <div class="verb-word" dir="rtl">ضَرَبْ<span class="suffix-pronoun">تُمَا</span></div>
+                            <div class="verb-info">
+                                <span class="meaning-text">زدید شما دو زنان</span>
+                                <div class="verb-badges">
+                                    <span class="meta-tag">مثنی</span>
+                                    <span class="sigha-num">۱۱</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="verb-row">
+                            <div class="verb-word" dir="rtl">ضَرَبْ<span class="suffix-pronoun">تُنَّ</span></div>
+                            <div class="verb-info">
+                                <span class="meaning-text">زدید شما همه زنان</span>
+                                <div class="verb-badges">
+                                    <span class="meta-tag">جمع</span>
+                                    <span class="sigha-num">۱۲</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="mutakallim-wrapper">
+            <div class="category-card mutakallim-card">
+                <div class="category-title-box">
+                    <span class="category-title-ar">متکلم</span>
+                    <span class="category-badge">۲ صیغه</span>
+                </div>
+                <svg class="curly-brace-svg" viewBox="0 0 40 200" preserveAspectRatio="none">
+                    <path d="M 8 6 C 24 6, 20 35, 20 82 C 20 95, 26 100, 34 100 C 26 100, 20 105, 20 118 C 20 165, 24 194, 8 194" />
+                </svg>
+                <div class="verbs-list">
+                    <div class="verb-row">
+                        <div class="verb-word" dir="rtl">ضَرَبْ<span class="suffix-pronoun">تُ</span></div>
+                        <div class="verb-info">
+                            <span class="meaning-text">زدم من (یک مرد یا یک زن)</span>
+                            <div class="verb-badges">
+                                <span class="meta-tag">متکلم وحده</span>
+                                <span class="sigha-num">۱۳</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="verb-row">
+                        <div class="verb-word" dir="rtl">ضَرَبْ<span class="suffix-pronoun">نَا</span></div>
+                        <div class="verb-info">
+                            <span class="meaning-text">زدیم ما (دو یا همه مردان/زنان)</span>
+                            <div class="verb-badges">
+                                <span class="meta-tag">متکلم مع‌الغیر</span>
+                                <span class="sigha-num">۱۴</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer class="poster-footer">
+            <span>مبحث: تصریف فعل ماضی معلوم (مثال: ضَرَبَ) • ۶ غایب + ۶ مخاطب + ۲ متکلم = ۱۴ صیغه</span>
+            <div class="author-badge">
+                <span class="pen-icon">✒️</span>
+                <div class="author-details">
+                    <span class="author-role">تهیه و تنظیم:</span>
+                    <span class="author-name">یاسر بختیار</span>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+</body>
+</html>
