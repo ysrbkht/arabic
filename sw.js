@@ -1,5 +1,5 @@
 /* سرویس‌ورکر: آفلاین‌شدن کتابخانه. HTML/JS/CSS ابتدا از شبکه (همیشه تازه) و در نبود اینترنت از کش؛ فونت و تصویر از کش. */
-const CACHE = 'arabic-lib-v3';
+const CACHE = 'arabic-lib-v4'; /* نسخه کش بالا رفت */
 const FILES = [
   './', 'index.html', 'manifest.webmanifest',
   'assets/theme.css', 'assets/deck.js', 'assets/rules.js', 'assets/fonts.css',
@@ -9,7 +9,9 @@ const FILES = [
   'assets/fonts/scheherazade-latin-400.woff2', 'assets/fonts/scheherazade-latin-700.woff2',
   'assets/fonts/vazirmatn-arabic.woff2', 'assets/fonts/vazirmatn-latin-ext.woff2', 'assets/fonts/vazirmatn-latin.woff2',
   'posters/afal-khamsa.html', 'posters/huruf-illat-sahih.html', 'posters/madi-14-sigha.html', 'posters/mudari-14-sigha.html',
-  'rules/amr.html', 'rules/mufrad-muthanna-jam.html', 'rules/tadkir-taanith.html'
+  'posters/plural-types.html', /* فایل جدید */
+  'rules/amr.html', 'rules/mufrad-muthanna-jam.html', 'rules/tadkir-taanith.html',
+  'rules/plural-types.html' /* فایل جدید */
 ];
 
 self.addEventListener('install', e => {
