@@ -1,0 +1,19 @@
+/* بهبود مشترک لوح‌ها: چاپ/PDF، موبایل، دسترسی‌پذیری */
+@page { size: A3 portrait; margin: 8mm; }
+@media print {
+  * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+  html, body { background: #fff !important; }
+  body { padding: 0 !important; min-height: 0 !important; display: block !important; }
+  .poster-board { max-width: none !important; width: 100% !important; margin: 0 !important; border-radius: 0 !important; }
+  .toolbar { display: none !important; }
+  .verb-row, .category-card, .definition-box { break-inside: avoid; }
+}
+.toolbar .btn:focus-visible { outline: 3px solid #0f172a; outline-offset: 2px; }
+.toolbar .btn:disabled { opacity: .6; cursor: progress; }
+@media (max-width: 640px) {
+  .toolbar { flex-wrap: wrap; gap: 8px; }
+  .toolbar-actions { flex-wrap: wrap; width: 100%; }
+  .toolbar .btn { flex: 1 1 auto; min-height: 44px; justify-content: center; }
+  .poster-board { overflow-x: auto; }
+}
+@media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } }

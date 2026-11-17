@@ -455,8 +455,8 @@
   function toggleTheme() {
     applyTheme(document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark');
   }
-  let savedTheme = 'light';
-  try { savedTheme = localStorage.getItem('amr-theme') || 'light'; } catch (e) {}
+  let savedTheme = (window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches) ? 'dark' : 'light';
+  try { savedTheme = localStorage.getItem('amr-theme') || savedTheme; } catch (e) {}
 
   document.addEventListener('click', e => {
     if (e.target.closest('button') || e.target.closest('a') ||

@@ -2,11 +2,12 @@
 <html lang="fa" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#b48a1e">
+<link rel="manifest" href="../manifest.webmanifest">
+<link rel="icon" href="../assets/icon.svg" type="image/svg+xml">
     <title>حروف علت و حروف صحیح — یاسر بختیار</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Scheherazade+New:wght@500;700&family=Vazirmatn:wght@300;400;600;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/fonts.css">
     <style>
         :root {
             --bg-page: #f5f2eb;
@@ -301,8 +302,9 @@
             .poster-board { box-shadow: none !important; border: 2px solid #b48a1e !important; }
         }
     </style>
+<link rel="stylesheet" href="../assets/poster.css">
 </head>
-<body>
+<body data-png="Sarf-Huruf-Illat-Wa-Sahih-Yaser-Bakhtiar.png">
 
     <svg width="0" height="0" style="position:absolute">
         <defs>
@@ -517,23 +519,8 @@
             </div>
         </footer>
     </div>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-    <script>
-        function downloadHighResImage() {
-            const board = document.querySelector('.poster-board');
-            const imgBtn = document.getElementById('imgBtn');
-            imgBtn.innerHTML = '<span>⏳</span><span>در حال رندر کیفیت بالا...</span>';
-            document.fonts.ready.then(() => {
-                html2canvas(board, { scale: 3, useCORS: true, backgroundColor: '#ffffff' }).then(canvas => {
-                    const link = document.createElement('a');
-                    link.download = 'Sarf-Huruf-Illat-Wa-Sahih-Yaser-Bakhtiar.png';
-                    link.href = canvas.toDataURL('image/png', 1.0);
-                    link.click();
-                    imgBtn.innerHTML = '<span>🖼️</span><span>دانلود عکس با کیفیت بالا (PNG)</span>';
-                });
-            });
-        }
-    </script>
+<script src="../assets/html2canvas.min.js" defer></script>
+<script src="../assets/poster-export.js" defer></script>
+<script src="../assets/register-sw.js"></script>
 </body>
 </html>
