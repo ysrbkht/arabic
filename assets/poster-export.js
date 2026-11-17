@@ -5,7 +5,47 @@
   var LABEL = '<span>🖼️</span><span>دانلود عکس با کیفیت بالا (PNG)</span>';
   var MAX_SIDE = 16000, MAX_AREA = 90e6;
 
+  /* html2canvas هر تکهٔ متنی (هر <span> رنگی) را جداگانه می‌کشد و شکل‌گیری حروف عربی
+     در مرز بین تکه‌ها قطع می‌شود (مثلاً «یَ» + «ضْرِبُ» جدا و بدون اتصال دیده می‌شود).
+     راه‌حل: در مرز دو تکهٔ پیوسته، یک ZWJ (حرف‌چسبان نامرئی) می‌گذاریم تا هر تکه با شکل اتصالیِ درست کشیده شود. */
+  var ZWJ = '\u200D';
+  var MARK = /[\u0610-\u061A\u064B-\u065F\u0670\u06D6-\u06ED\u200C-\u200F]/;
+  var ARLETTER = /[\u0620-\u064A\u066E-\u06D3\u06FA-\u06FF\u0750-\u077F]/;
+  var NOJOIN_NEXT = /[\u0621\u0622\u0623\u0624\u0625\u0627\u0629\u062F\u0630\u0631\u0632\u0648\u0698\u0671\u06D5\u06C0\u06C3\u06D2\u06D3]/;
+  function lastBase(t) { for (var i = t.length - 1; i >= 0; i--) { if (!MARK.test(t[i])) return t[i]; } return ''; }
+  function isInlineChain(el, stop, win) {
+    for (; el && el !== stop; el = el.parentNode) {
+      if (el.nodeType === 1 && win.getComputedStyle(el).display !== 'inline') return false;
+    }
+    return true;
+  }
+  function commonAncestor(a, b) {
+    var set = [], n;
+    for (n = a; n; n = n.parentNode) set.push(n);
+    for (n = b; n; n = n.parentNode) if (set.indexOf(n) > -1) return n;
+    return null;
+  }
+  function joinArabicAcrossSpans(doc) {
+    var root = doc.querySelector(BOARD_SEL) || doc.body, win = doc.defaultView;
+    var walker = doc.createTreeWalker(root, NodeFilter.SHOW_TEXT, null), nodes = [], n;
+    while ((n = walker.nextNode())) { if (/\S/.test(n.nodeValue) || n.nodeValue.length) nodes.push(n); }
+    for (var i = 0; i + 1 < nodes.length; i++) {
+      var a = nodes[i], b = nodes[i + 1];
+      if (a.parentNode === b.parentNode && a.nextSibling !== b) continue;
+      var av = a.nodeValue, bv = b.nodeValue;
+      var prev = lastBase(av), next = bv.charAt(0);
+      if (!ARLETTER.test(prev) || NOJOIN_NEXT.test(prev) || !ARLETTER.test(next)) continue; /* فقط اگر واقعاً به هم می‌چسبند */
+      if (/\s$/.test(av) || /^\s/.test(bv)) continue;
+      var anc = commonAncestor(a, b);
+      if (!anc || !isInlineChain(a.parentNode, anc, win) || !isInlineChain(b.parentNode, anc, win)) continue;
+      if (anc.nodeType === 1 && win.getComputedStyle(anc).display.indexOf('flex') > -1) continue; /* در flex اصلاً چسبیده نیستند */
+      if (av.charAt(av.length - 1) !== ZWJ) a.nodeValue = av + ZWJ;
+      if (bv.charAt(0) !== ZWJ) b.nodeValue = ZWJ + bv;
+    }
+  }
+
   function fixClone(doc) {
+    joinArabicAcrossSpans(doc);
     var st = doc.createElement('style');
     /* letter-spacing شکل‌گیری حروف عربی را در html2canvas می‌شکند؛ سایه‌ها و انیمیشن‌ها هم حذف می‌شوند */
     st.textContent = '*{letter-spacing:normal!important;animation:none!important;transition:none!important}' +
