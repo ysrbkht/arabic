@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>افعال خمسه (پنج فعل مضارع) — یاسر بختیار</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Scheherazade+New:wght@500;700&family=Vazirmatn:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-page: #f5f2eb;
+            --bg-card: #ffffff;
+            --gold-light: #856812;
+            --gold-main: #b48a1e;
+            --gold-dark: #785a0e;
+            --blue-prefix: #0284c7;
+            --emerald-accent: #047857;
+            --rose-accent: #be123c;
+            --text-main: #0f172a;
+            --text-meaning: #334155;
+            --text-dim: #64748b;
+            --border-glow: rgba(180, 138, 30, 0.38);
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: 'Vazirmatn', sans-serif;
+            background-color: var(--bg-page);
+            background-image:
+                radial-gradient(circle at 12% 12%, rgba(212, 175, 55, 0.12) 0%, transparent 45%),
+                radial-gradient(circle at 88% 88%, rgba(190, 18, 60, 0.05) 0%, transparent 45%);
+            color: var(--text-main);
+            min-height: 100vh;
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
+            padding: 1.75rem 1rem;
+        }
+        .toolbar {
+            max-width: 1200px; width: 100%;
+            display: flex; justify-content: space-between; align-items: center;
+            margin-bottom: 1rem; padding: 0 0.5rem;
+            gap: 0.6rem; flex-wrap: wrap;
+        }
+        .toolbar-brand {
+            display: flex; align-items: center; gap: 0.6rem;
+            font-size: 0.9rem; color: var(--text-dim); font-weight: 600;
+        }
+        .toolbar-brand span.dot { width: 10px; height: 10px; border-radius: 50%; background: var(--gold-main); }
+        .toolbar-actions { display: flex; gap: 0.6rem; flex-wrap: wrap; }
+        .btn {
+            background: var(--bg-card);
+            border: 1px solid var(--border-glow);
+            color: var(--text-main);
+            font-family: 'Vazirmatn', sans-serif;
+            font-size: 0.85rem; font-weight: 600;
+            padding: 0.5rem 1.15rem; border-radius: 999px;
+            cursor: pointer;
+            display: inline-flex; align-items: center; gap: 0.45rem;
+            transition: all 0.2s ease;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+            text-decoration: none;
+        }
+        .btn:hover {
+            border-color: var(--gold-main);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 18px rgba(180, 138, 30, 0.18);
+        }
+        .poster-board {
+            max-width: 1200px; width: 100%;
+            background: var(--bg-card);
+            border: 1.5px solid var(--border-glow);
+            border-radius: 28px;
+            padding: 2.75rem 2.5rem 2.25rem;
+            position: relative; overflow: hidden;
+            box-shadow: 0 20px 50px rgba(15, 23, 42, 0.07);
+        }
+        .corner-ornament { position: absolute; width: 70px; height: 70px; pointer-events: none; opacity: 0.45; }
+        .corner-tl { top: 14px; left: 14px; border-top: 2px solid var(--gold-main); border-left: 2px solid var(--gold-main); border-top-left-radius: 16px; }
+        .corner-tr { top: 14px; right: 14px; border-top: 2px solid var(--gold-main); border-right: 2px solid var(--gold-main); border-top-right-radius: 16px; }
+        .corner-bl { bottom: 14px; left: 14px; border-bottom: 2px solid var(--gold-main); border-left: 2px solid var(--gold-main); border-bottom-left-radius: 16px; }
+        .corner-br { bottom: 14px; right: 14px; border-bottom: 2px solid var(--gold-main); border-right: 2px solid var(--gold-main); border-bottom-right-radius: 16px; }
+        .poster-header { text-align: center; margin-bottom: 2rem; }
+        .badge-top {
+            display: inline-flex; align-items: center; gap: 0.5rem;
+            padding: 0.35rem 1.15rem; border-radius: 999px;
+            background: rgba(180, 138, 30, 0.1);
+            border: 1px solid rgba(180, 138, 30, 0.3);
+            color: var(--gold-light); font-size: 0.85rem; font-weight: 600;
+            margin-bottom: 0.8rem;
+        }
+        .poster-title {
+            font-size: 2.15rem; font-weight: 800;
+            background: linear-gradient(135deg, #0f172a 0%, #856812 60%, #b48a1e 100%);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            margin-bottom: 0.65rem;
+        }
+        .definition-box {
+            max-width: 880px; margin: 0 auto 1rem;
+            background: #faf9f5;
+            border: 1px solid rgba(180, 138, 30, 0.28);
+            border-radius: 14px;
+            padding: 0.75rem 1.25rem;
+            font-size: 0.92rem; color: var(--text-meaning); line-height: 1.7;
+        }
+        .definition-box strong { color: var(--gold-dark); }
+        .poster-subtitle {
+            color: var(--text-dim); font-size: 0.88rem;
+            display: flex; justify-content: center; align-items: center;
+            gap: 1.35rem; flex-wrap: wrap; margin-top: 0.75rem;
+        }
+        .legend-item { display: inline-flex; align-items: center; gap: 0.4rem; font-size: 0.82rem; }
+        .legend-dot { width: 9px; height: 9px; border-radius: 50%; }
+        .khamsa-main-box {
+            background: #faf9f5;
+            border: 1px solid rgba(15, 23, 42, 0.09);
+            border-radius: 24px; padding: 1.6rem 2rem;
+            display: flex; align-items: center; justify-content: space-between;
+            margin-bottom: 2rem;
+            box-shadow: 0 8px 24px rgba(15, 23, 42, 0.03);
+        }
+        .khamsa-title-side {
+            min-width: 145px; text-align: center;
+            display: flex; flex-direction: column;
+            align-items: center; gap: 0.45rem;
+        }
+        .khamsa-title-ar { font-size: 1.45rem; font-weight: 800; color: var(--gold-light); }
+        .khamsa-sub-badge {
+            font-size: 0.78rem; padding: 0.2rem 0.75rem; border-radius: 99px;
+            background: rgba(180, 138, 30, 0.14); color: var(--gold-dark);
+            border: 1px solid rgba(180, 138, 30, 0.3); font-weight: 600;
+        }
+        .curly-brace-large { width: 42px; height: 390px; flex-shrink: 0; margin: 0 1rem; }
+        .curly-brace-large path { fill: none; stroke: url(#goldGrad); stroke-width: 2.6; stroke-linecap: round; }
+        .khamsa-list { flex: 1; display: flex; flex-direction: column; gap: 0.75rem; }
+        .khamsa-row {
+            display: grid;
+            grid-template-columns: 165px 140px 1fr auto;
+            align-items: center;
+            background: #ffffff;
+            border: 1px solid rgba(15, 23, 42, 0.08);
+            padding: 0.45rem 1.15rem;
+            border-radius: 14px;
+            gap: 1rem;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.02);
+            transition: all 0.2s ease;
+        }
+        .khamsa-row:hover { border-color: var(--gold-main); background: rgba(180, 138, 30, 0.04); }
+        .verb-word {
+            font-family: 'Scheherazade New', serif;
+            font-size: 2.5rem; font-weight: 700;
+            line-height: 1.3; color: var(--text-main);
+            white-space: nowrap;
+            text-rendering: optimizeLegibility;
+        }
+        .wazn-word {
+            font-family: 'Scheherazade New', serif;
+            font-size: 1.65rem; font-weight: 500; color: var(--text-dim);
+            border-right: 2px solid rgba(180, 138, 30, 0.22);
+            padding-right: 0.85rem;
+        }
+        .prefix-mudari { color: var(--blue-prefix); }
+        .suffix-pronoun { color: var(--emerald-accent); }
+        .suffix-irab { color: var(--rose-accent); }
+        .meaning-col {
+            display: flex; flex-direction: column; gap: 0.15rem;
+            border-right: 2px solid rgba(180, 138, 30, 0.22);
+            padding-right: 0.85rem;
+        }
+        .meaning-text { font-size: 0.94rem; font-weight: 700; color: var(--text-meaning); }
+        .pronoun-detail { font-size: 0.76rem; color: var(--text-dim); }
+        .row-badges { display: flex; align-items: center; gap: 0.5rem; }
+        .sigha-tag {
+            font-size: 0.74rem; font-weight: 600; color: var(--gold-dark);
+            background: rgba(180, 138, 30, 0.1);
+            border: 1px solid rgba(180, 138, 30, 0.25);
+            padding: 0.22rem 0.65rem; border-radius: 8px;
+        }
+        .sigha-num {
+            width: 25px; height: 25px; border-radius: 50%;
+            background: rgba(180, 138, 30, 0.16);
+            border: 1px solid rgba(180, 138, 30, 0.45);
+            color: var(--gold-dark);
+            font-size: 0.75rem; font-weight: 800;
+            display: inline-flex; align-items: center; justify-content: center;
+        }
+        .irab-section-title {
+            text-align: center; font-size: 1.1rem; font-weight: 800;
+            color: var(--gold-dark); margin-bottom: 1rem;
+        }
+        .irab-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+        .irab-card {
+            background: #faf9f5;
+            border: 1px solid rgba(15, 23, 42, 0.09);
+            border-top: 4px solid var(--gold-main);
+            border-radius: 18px;
+            padding: 1.15rem 1.25rem;
+            display: flex; flex-direction: column; gap: 0.55rem;
+        }
+        .irab-card.raf { border-top-color: var(--emerald-accent); }
+        .irab-card.nasb { border-top-color: var(--blue-prefix); }
+        .irab-card.jazm { border-top-color: var(--rose-accent); }
+        .irab-header { display: flex; justify-content: space-between; align-items: center; }
+        .irab-state { font-size: 1rem; font-weight: 800; color: var(--text-main); }
+        .irab-sign { font-size: 0.76rem; font-weight: 700; padding: 0.18rem 0.6rem; border-radius: 99px; }
+        .raf .irab-sign { background: rgba(4, 120, 87, 0.12); color: var(--emerald-accent); }
+        .nasb .irab-sign { background: rgba(2, 132, 199, 0.12); color: var(--blue-prefix); }
+        .jazm .irab-sign { background: rgba(190, 18, 60, 0.12); color: var(--rose-accent); }
+        .irab-example {
+            font-family: 'Scheherazade New', serif;
+            font-size: 1.95rem; font-weight: 700; text-align: center;
+            background: #ffffff;
+            border: 1px solid rgba(15, 23, 42, 0.07);
+            border-radius: 12px;
+            padding: 0.25rem 0.5rem;
+            color: var(--text-main);
+        }
+        .irab-desc { font-size: 0.8rem; color: var(--text-dim); line-height: 1.5; text-align: center; }
+        .poster-footer {
+            margin-top: 2.25rem; padding-top: 1.25rem;
+            border-top: 1px dashed rgba(180, 138, 30, 0.35);
+            display: flex; justify-content: space-between; align-items: center;
+            font-size: 0.85rem; color: var(--text-dim);
+            flex-wrap: wrap; gap: 1rem;
+        }
+        .author-badge {
+            display: inline-flex; align-items: center; gap: 0.65rem;
+            background: linear-gradient(135deg, rgba(180, 138, 30, 0.12), rgba(180, 138, 30, 0.03));
+            border: 1px solid var(--gold-main);
+            padding: 0.45rem 1.15rem; border-radius: 14px;
+            box-shadow: 0 4px 12px rgba(180, 138, 30, 0.1);
+        }
+        .author-badge .pen-icon { color: var(--gold-main); font-size: 1.1rem; }
+        .author-badge .author-details { display: flex; flex-direction: column; line-height: 1.3; }
+        .author-badge .author-role { font-size: 0.68rem; color: var(--text-dim); font-weight: 400; }
+        .author-badge .author-name { font-size: 0.98rem; font-weight: 800; color: var(--gold-dark); letter-spacing: 0.2px; }
+        @media (max-width: 980px) {
+            .khamsa-main-box { flex-direction: column; gap: 1rem; padding: 1.25rem; }
+            .curly-brace-large { display: none; }
+            .khamsa-row { grid-template-columns: 1fr; text-align: center; gap: 0.5rem; }
+            .wazn-word, .meaning-col { border-right: none; padding-right: 0; }
+            .row-badges { justify-content: center; }
+            .irab-grid { grid-template-columns: 1fr; }
+            .poster-footer { flex-direction: column; text-align: center; }
+        }
+        @media print {
+            body { background: #fff !important; padding: 0; }
+            .toolbar { display: none !important; }
+            .poster-board { box-shadow: none !important; border: 2px solid #b48a1e !important; }
+        }
+    </style>
+</head>
+<body>
+
+    <svg width="0" height="0" style="position:absolute">
+        <defs>
+            <linearGradient id="goldGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stop-color="#d4af37" />
+                <stop offset="50%" stop-color="#b48a1e" />
+                <stop offset="100%" stop-color="#785a0e" />
+            </linearGradient>
+        </defs>
+    </svg>
+
+    <div class="toolbar">
+        <div class="toolbar-brand">
+            <span class="dot"></span>
+            <span>لوح آموزشی علم صرف و نحو • الأفعال الخمسة (افعال خمسه)</span>
+        </div>
+        <div class="toolbar-actions">
+            <a class="btn" href="../index.html" title="بازگشت به فهرست">🏠 فهرست</a>
+            <button class="btn" id="imgBtn" onclick="downloadHighResImage()">
+                <span>🖼️</span>
+                <span>دانلود عکس با کیفیت بالا (PNG)</span>
+            </button>
+            <button class="btn" onclick="window.print()">
+                <span>🖨️</span>
+                <span>چاپ / ذخیره PDF</span>
+            </button>
+        </div>
+    </div>
+
+    <div class="poster-board">
+        <div class="corner-ornament corner-tl"></div>
+        <div class="corner-ornament corner-tr"></div>
+        <div class="corner-ornament corner-bl"></div>
+        <div class="corner-ornament corner-br"></div>
+
+        <header class="poster-header">
+            <div class="badge-top">📚 قواعد علم صرف و نحو • الأفعال الخمسة</div>
+            <h1 class="poster-title">افعال خمسه (پنج فعل مضارع)</h1>
+            <div class="definition-box">
+                <strong>تعریف:</strong> هر فعل مضارعی که به آخر آن <strong>«الف تثنیه»</strong>، <strong>«واو جمع مذکر»</strong> یا <strong>«یاء مفرد مؤنث مخاطبه»</strong> متصل شده باشد، از افعال خمسه شمرده می‌شود و در ۵ صیغه می‌آید:
+            </div>
+            <div class="poster-subtitle">
+                <span class="legend-item"><span class="legend-dot" style="background: var(--blue-prefix);"></span>حرف مضارعه (یـ / تـ)</span>
+                <span class="legend-item"><span class="legend-dot" style="background: var(--emerald-accent);"></span>ضمیر فاعلی (ا / و / ي)</span>
+                <span class="legend-item"><span class="legend-dot" style="background: var(--rose-accent);"></span>نون اعرابی (علامت رَفع)</span>
+            </div>
+        </header>
+
+        <div class="khamsa-main-box">
+            <div class="khamsa-title-side">
+                <span class="khamsa-title-ar">الأفعال الخمسة</span>
+                <span class="khamsa-sub-badge">۵ صیغه مضارع</span>
+            </div>
+            <svg class="curly-brace-large" viewBox="0 0 40 200" preserveAspectRatio="none">
+                <path d="M 8 4 C 24 4, 20 35, 20 84 C 20 95, 26 100, 35 100 C 26 100, 20 105, 20 116 C 20 165, 24 196, 8 196" />
+            </svg>
+            <div class="khamsa-list">
+                <div class="khamsa-row">
+                    <div class="verb-word" dir="rtl"><span class="prefix-mudari">يَ</span>ضْرِبَ<span class="suffix-pronoun">ا</span><span class="suffix-irab">نِ</span></div>
+                    <div class="wazn-word" dir="rtl">يَفْعَلَانِ</div>
+                    <div class="meaning-col">
+                        <span class="meaning-text">می‌زنند آن دو مردان</span>
+                        <span class="pronoun-detail">اتصال به الف تثنیه • فاعل: «الف»</span>
+                    </div>
+                    <div class="row-badges">
+                        <span class="sigha-tag">مثنی مذکر غایب</span>
+                        <span class="sigha-num">۱</span>
+                    </div>
+                </div>
+                <div class="khamsa-row">
+                    <div class="verb-word" dir="rtl"><span class="prefix-mudari">تَ</span>ضْرِبَ<span class="suffix-pronoun">ا</span><span class="suffix-irab">نِ</span></div>
+                    <div class="wazn-word" dir="rtl">تَفْعَلَانِ</div>
+                    <div class="meaning-col">
+                        <span class="meaning-text">می‌زنند آن دو زنان / می‌زنید شما دو مردان یا دو زنان</span>
+                        <span class="pronoun-detail">اتصال به الف تثنیه • مشترک بین مثنی مؤنث غایب و مثنی مخاطب</span>
+                    </div>
+                    <div class="row-badges">
+                        <span class="sigha-tag">مثنی غایب / مخاطب</span>
+                        <span class="sigha-num">۲</span>
+                    </div>
+                </div>
+                <div class="khamsa-row">
+                    <div class="verb-word" dir="rtl"><span class="prefix-mudari">يَ</span>ضْرِبُ<span class="suffix-pronoun">و</span><span class="suffix-irab">نَ</span></div>
+                    <div class="wazn-word" dir="rtl">يَفْعَلُونَ</div>
+                    <div class="meaning-col">
+                        <span class="meaning-text">می‌زنند آن همه مردان</span>
+                        <span class="pronoun-detail">اتصال به واو جمع • فاعل: «واو»</span>
+                    </div>
+                    <div class="row-badges">
+                        <span class="sigha-tag">جمع مذکر غایب</span>
+                        <span class="sigha-num">۳</span>
+                    </div>
+                </div>
+                <div class="khamsa-row">
+                    <div class="verb-word" dir="rtl"><span class="prefix-mudari">تَ</span>ضْرِبُ<span class="suffix-pronoun">و</span><span class="suffix-irab">نَ</span></div>
+                    <div class="wazn-word" dir="rtl">تَفْعَلُونَ</div>
+                    <div class="meaning-col">
+                        <span class="meaning-text">می‌زنید شما همه مردان</span>
+                        <span class="pronoun-detail">اتصال به واو جمع • فاعل: «واو»</span>
+                    </div>
+                    <div class="row-badges">
+                        <span class="sigha-tag">جمع مذکر مخاطب</span>
+                        <span class="sigha-num">۴</span>
+                    </div>
+                </div>
+                <div class="khamsa-row">
+                    <div class="verb-word" dir="rtl"><span class="prefix-mudari">تَ</span>ضْرِبِ<span class="suffix-pronoun">ي</span><span class="suffix-irab">نَ</span></div>
+                    <div class="wazn-word" dir="rtl">تَفْعَلِينَ</div>
+                    <div class="meaning-col">
+                        <span class="meaning-text">می‌زنی تو یک زن</span>
+                        <span class="pronoun-detail">اتصال به یاء مخاطبه • فاعل: «یاء»</span>
+                    </div>
+                    <div class="row-badges">
+                        <span class="sigha-tag">مفرد مؤنث مخاطب</span>
+                        <span class="sigha-num">۵</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="irab-section-title">⚖️ قاعده اعراب افعال خمسه (إعراب الأفعال الخمسة)</div>
+        <div class="irab-grid">
+            <div class="irab-card raf">
+                <div class="irab-header">
+                    <span class="irab-state">۱. حالت رَفع (مرفوع)</span>
+                    <span class="irab-sign">ثبوت نون (باقی ماندن نون)</span>
+                </div>
+                <div class="irab-example" dir="rtl">هُمْ يَضْرِبُ<span class="suffix-pronoun">و</span><span class="suffix-irab">نَ</span></div>
+                <div class="irab-desc">هرگاه حرف ناصبه یا جازمه بر سر آن نیاید، با باقی ماندن «نون» در آخرش مرفوع می‌شود.</div>
+            </div>
+            <div class="irab-card nasb">
+                <div class="irab-header">
+                    <span class="irab-state">۲. حالت نَصب (منصوب)</span>
+                    <span class="irab-sign">حذف نون از آخر فعل</span>
+                </div>
+                <div class="irab-example" dir="rtl"><span class="prefix-mudari">لَنْ</span> يَضْرِبُ<span class="suffix-pronoun">وا</span></div>
+                <div class="irab-desc">هرگاه یکی از حروف ناصبه (أَنْ، لَنْ، كَيْ، إِذَنْ) بر سرش بیاید، «نون» از آخرش حذف می‌گردد.</div>
+            </div>
+            <div class="irab-card jazm">
+                <div class="irab-header">
+                    <span class="irab-state">۳. حالت جَزم (مجزوم)</span>
+                    <span class="irab-sign">حذف نون از آخر فعل</span>
+                </div>
+                <div class="irab-example" dir="rtl"><span class="suffix-irab">لَمْ</span> يَضْرِبُ<span class="suffix-pronoun">وا</span></div>
+                <div class="irab-desc">هرگاه یکی از ادوات جازمه (لَمْ، لَمَّا، لَا النّاهِیة، لَام الأَمر) بر سرش بیاید، «نون» حذف می‌گردد.</div>
+            </div>
+        </div>
+
+        <footer class="poster-footer">
+            <span>نکته: نون جمع مؤنث در «یَضْرِبْنَ» و «تَضْرِبْنَ» ضمیر فاعلی (نون نسوه) است و فعل را مبنی بر سکون می‌کند؛ لذا جزء افعال خمسه نیست.</span>
+            <div class="author-badge">
+                <span class="pen-icon">✒️</span>
+                <div class="author-details">
+                    <span class="author-role">تهیه و تنظیم:</span>
+                    <span class="author-name">یاسر بختیار</span>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script>
+        function downloadHighResImage() {
+            const board = document.querySelector('.poster-board');
+            const imgBtn = document.getElementById('imgBtn');
+            imgBtn.innerHTML = '<span>⏳</span><span>در حال رندر کیفیت بالا...</span>';
+            document.fonts.ready.then(() => {
+                html2canvas(board, { scale: 3, useCORS: true, backgroundColor: '#ffffff' }).then(canvas => {
+                    const link = document.createElement('a');
+                    link.download = 'Sarf-Afal-Khamsa-Yaser-Bakhtiar.png';
+                    link.href = canvas.toDataURL('image/png', 1.0);
+                    link.click();
+                    imgBtn.innerHTML = '<span>🖼️</span><span>دانلود عکس با کیفیت بالا (PNG)</span>';
+                });
+            });
+        }
+    </script>
+</body>
+</html>
