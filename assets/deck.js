@@ -6,7 +6,6 @@
   const HOME = R.homeUrl || '../index.html';
   const HAS_WORKSHOP = !!(R.workshop && R.workshop.verbs && R.workshop.verbs.length);
 
-  /* ---------- آیکون‌ها ---------- */
   const svg = p => '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">' + p + '</svg>';
   const ICON_HOME = svg('<path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/>');
   const ICON_TOC = svg('<line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/>');
@@ -22,7 +21,6 @@
   const ICON_CHECK = svg('<polyline points="20 6 9 17 4 12"/>');
   const ROSETTE = '<svg class="rosette" viewBox="0 0 400 400" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true"><circle cx="200" cy="200" r="196"/><circle cx="200" cy="200" r="120"/><rect x="62" y="62" width="276" height="276"/><rect x="62" y="62" width="276" height="276" transform="rotate(45 200 200)"/><rect x="108" y="108" width="184" height="184"/><rect x="108" y="108" width="184" height="184" transform="rotate(45 200 200)"/></svg>';
 
-  /* ---------- ساخت پوسته ---------- */
   document.body.insertAdjacentHTML('afterbegin', `
     <div class="laser-dot" id="laserDot"></div>
     <div class="app">
@@ -109,7 +107,6 @@
     </div>
   `);
 
-  /* ---------- ارجاع‌ها ---------- */
   const $ = id => document.getElementById(id);
   const sheet = $('sheet'), titleEl = $('title'), badgeEl = $('badge'), bodyEl = $('body'), barEl = $('bar'),
         counterEl = $('counter'), dotsEl = $('dots'), overlay = $('overlay'), helpOverlay = $('helpOverlay'),
@@ -120,7 +117,6 @@
         restartBtn = $('restartBtn'), goWorkshopBtn = $('goWorkshopBtn'),
         closeHelpBtn = $('closeHelpBtn'), btnCloseToc = $('btnCloseToc');
 
-  /* ---------- ساخت deck ---------- */
   const deck = [];
   if (R.opening) deck.push({ isOpening: true, tocTitle: 'آغازین', title: '', items: [R.opening] });
   (R.sections || []).forEach(s => deck.push({
@@ -139,14 +135,12 @@
     });
   }
 
-  /* ---------- ابزار ---------- */
   const realSections = deck.filter(s => !s.isOpening);
   const totalRealItems = realSections.reduce((s, sec) => s + sec.items.length, 0);
   const revealedRealBefore = idx => deck.slice(0, idx).filter(s => !s.isOpening).reduce((s, sec) => s + sec.items.length, 0);
   const faDigits = ['۰','۱','۲','۳','۴','۵','۶','۷','۸','۹'];
   const toFa = n => String(n).replace(/\d/g, d => faDigits[+d]);
 
-  /* ---------- ساخت نقاط و فهرست ---------- */
   deck.forEach((sec, i) => {
     if (!sec.isOpening) {
       const d = document.createElement('button');
@@ -173,7 +167,6 @@
 
   function updateFocus() { els.forEach((el, k) => el.classList.toggle('cur', k === ii - 1)); }
 
-  /* ---------- کارگاه ---------- */
   function renderWorkshopSlide(container) {
     const W = R.workshop;
     const wrap = document.createElement('div');
@@ -260,7 +253,6 @@
     });
   }
 
-  /* ---------- رندر ---------- */
   function renderSection() {
     const sec = deck[si];
     sheet.classList.toggle('opening', !!sec.isOpening);
@@ -403,13 +395,11 @@
     updateHud();
   }
 
-  /* ---------- کشو ---------- */
   function toggleToc(force) {
     const open = typeof force === 'boolean' ? force : !tocBackdrop.classList.contains('open');
     tocBackdrop.classList.toggle('open', open);
   }
 
-  /* ---------- لیزر ---------- */
   let laserActive = false;
   function toggleLaser() {
     laserActive = !laserActive;
@@ -422,7 +412,6 @@
     laserDot.style.top = e.clientY + 'px';
   });
 
-  /* ---------- تمام‌صفحه ---------- */
   function toggleFullscreen() {
     const el = document.documentElement;
     try {
@@ -441,7 +430,6 @@
     btnFull.style.display = 'none';
   }
 
-  /* ---------- فونت ---------- */
   const FONT_MIN = 0.8, FONT_MAX = 1.5, FONT_STEP = 0.1;
   let fontScale = 1;
   function applyFontScale() {
@@ -459,7 +447,6 @@
     if (!isNaN(s)) fontScale = Math.max(FONT_MIN, Math.min(FONT_MAX, s));
   } catch (e) {}
 
-  /* ---------- تم ---------- */
   function applyTheme(t) {
     document.documentElement.dataset.theme = t;
     btnTheme.innerHTML = t === 'dark' ? ICON_SUN : ICON_MOON;
@@ -471,7 +458,6 @@
   let savedTheme = 'light';
   try { savedTheme = localStorage.getItem('amr-theme') || 'light'; } catch (e) {}
 
-  /* ---------- کلیک کلی ---------- */
   document.addEventListener('click', e => {
     if (e.target.closest('button') || e.target.closest('a') ||
         e.target.closest('.interactive-zone') || e.target.closest('.overlay-card') ||
@@ -480,7 +466,6 @@
     next();
   });
 
-  /* ---------- کلیدها ---------- */
   document.addEventListener('keydown', e => {
     const c = e.code;
     if (c === 'Escape') {
@@ -501,7 +486,6 @@
     else if (c === 'Home') { e.preventDefault(); reset(); }
   });
 
-  /* ---------- سوایپ ---------- */
   let tx = null, ty = null;
   document.addEventListener('touchstart', e => {
     tx = e.touches[0].clientX; ty = e.touches[0].clientY;
@@ -516,7 +500,6 @@
     }
   }, { passive: true });
 
-  /* ---------- رویدادها ---------- */
   btnToc.addEventListener('click', e => { e.stopPropagation(); toggleToc(); });
   btnCloseToc.addEventListener('click', e => { e.stopPropagation(); toggleToc(false); });
   tocBackdrop.addEventListener('click', e => { if (!e.target.closest('.toc-drawer')) toggleToc(false); });
@@ -541,7 +524,6 @@
   document.addEventListener('fullscreenchange', updateFullscreenIcon);
   document.addEventListener('webkitfullscreenchange', updateFullscreenIcon);
 
-  /* ---------- شروع ---------- */
   renderSection();
   updateHud();
   updateFullscreenIcon();
