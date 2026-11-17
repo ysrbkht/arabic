@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>قواعد اللغة العربیة — کتابخانه تعاملی</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Scheherazade+New:wght@400;700&family=Vazirmatn:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/theme.css">
+</head>
+<body class="hub-body">
+  <button class="hub-theme" id="hubTheme" title="تغییر تم روشن/تیره" aria-label="تغییر تم">🌙</button>
+
+  <div class="hub">
+    <header class="hub-head">
+      <span class="hub-badge">قواعد اللغة العربیة</span>
+      <h1 class="hub-title">کتابخانه تعاملی قواعد عربی</h1>
+      <p class="hub-sub">هر قاعده یک صفحهٔ مستقل با ارائهٔ گام‌به‌گام، حالت شب و روز، نشانگر لیزری معلم، کارگاه تعاملی و آزمون کلاسی.</p>
+      <div class="hub-search">
+        <input id="hubSearch" type="search" placeholder="جستجوی قاعده…" autocomplete="off" aria-label="جستجوی قاعده">
+      </div>
+    </header>
+
+    <main class="hub-grid" id="hubGrid"></main>
+
+    <footer class="hub-foot" id="hubFoot"></footer>
+  </div>
+
+  <script src="assets/rules.js"></script>
+  <script>
+    (function () {
+      const grid = document.getElementById('hubGrid');
+      const foot = document.getElementById('hubFoot');
+      const search = document.getElementById('hubSearch');
+
+      function render(filter) {
+        const f = (filter || '').trim().toLowerCase();
+        const list = (window.RULES || []).filter(r => {
+          if (!f) return true;
+          return (r.title + ' ' + r.badge + ' ' + r.desc).toLowerCase().includes(f);
+        });
+
+        grid.innerHTML = list.length
+          ? list.map(r => `
+            <a class="rule-card" href="rules/${r.slug}.html">
+              <span class="rule-badge">${r.badge}</span>
+              <h2 class="rule-title">${r.title}</h2>
+              <p class="rule-desc">${r.desc}</p>
+              <span class="rule-cta">شروع ارائه <span aria-hidden="true">←</span></span>
+            </a>`).join('')
+          : '<div class="hub-empty">قاعده‌ای با این عنوان یافت نشد.</div>';
+
+        foot.textContent = `${list.length} قاعده در دسترس`;
+      }
+
+      render('');
+      search.addEventListener('input', e => render(e.target.value));
+
+      /* تم */
+      const btn = document.getElementById('hubTheme');
+      function applyTheme(t) {
+        document.documentElement.dataset.theme = t;
+        btn.textContent = t === 'dark' ? '☀️' : '🌙';
+        try { localStorage.setItem('amr-theme', t); } catch (e) {}
+      }
+      let saved = 'light';
+      try { saved = localStorage.getItem('amr-theme') || 'light'; } catch (e) {}
+      applyTheme(saved);
+      btn.addEventListener('click', () => {
+        applyTheme(document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark');
+      });
+    })();
+  </script>
+</body>
+</html>
