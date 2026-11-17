@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>أنواع الجمع (انواع جمع) — یاسر بختیار</title>
+    <link rel="stylesheet" href="../assets/fonts.css">
+    <link rel="stylesheet" href="../assets/poster.css">
+    <style>
+        /* استایل‌های اختصاصی این لوح */
+        .plural-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        .plural-card {
+            background: #faf9f5;
+            border: 1px solid rgba(15, 23, 42, 0.09);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 6px 20px rgba(15, 23, 42, 0.03);
+            display: flex;
+            flex-direction: column;
+        }
+        .card-title {
+            background: linear-gradient(135deg, #8b5cf6, #6d28d9);
+            color: #ffffff;
+            font-family: 'Scheherazade New', serif;
+            font-size: 1.6rem;
+            font-weight: 700;
+            text-align: center;
+            padding: 0.8rem 0.5rem;
+        }
+        .card-body {
+            padding: 1.5rem 1.25rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            flex: 1;
+        }
+        .card-definition {
+            font-size: 0.95rem;
+            color: var(--text-meaning);
+            line-height: 1.9;
+            text-align: justify;
+            border-bottom: 1px dashed rgba(180, 138, 30, 0.3);
+            padding-bottom: 0.75rem;
+        }
+        .examples-box {
+            background: #ffffff;
+            border: 1px solid rgba(15, 23, 42, 0.06);
+            border-radius: 12px;
+            padding: 0.75rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.6rem;
+        }
+        .examples-title {
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--gold-light);
+            margin-bottom: 0.2rem;
+        }
+        .example-row {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            font-family: 'Scheherazade New', serif;
+            font-size: 1.6rem;
+            font-weight: 700;
+            direction: rtl;
+        }
+        .highlight-gold { color: var(--gold-main); }
+        .highlight-purple { color: #7e22ce; }
+        .highlight-emerald { color: var(--emerald-accent); }
+        .example-arrow { color: var(--text-dim); font-size: 1.2rem; }
+
+        @media (max-width: 1024px) {
+            .plural-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body data-png="Sarf-Plural-Types-Yaser-Bakhtiar.png">
+
+    <div class="toolbar">
+        <div class="toolbar-brand">
+            <span class="dot"></span>
+            <span>لوح آموزشی علم صرف • أنواع الجمع (انواع جمع)</span>
+        </div>
+        <div class="toolbar-actions">
+            <a class="btn" href="../index.html" title="بازگشت به فهرست">🏠 فهرست</a>
+            <button class="btn" id="imgBtn" onclick="downloadHighResImage()">
+                <span>🖼️</span>
+                <span>دانلود عکس با کیفیت بالا (PNG)</span>
+            </button>
+            <button class="btn" onclick="window.print()">
+                <span>🖨️</span>
+                <span>چاپ / ذخیره PDF</span>
+            </button>
+        </div>
+    </div>
+
+    <div class="poster-board">
+        <div class="corner-ornament corner-tl"></div>
+        <div class="corner-ornament corner-tr"></div>
+        <div class="corner-ornament corner-bl"></div>
+        <div class="corner-ornament corner-br"></div>
+
+        <header class="poster-header">
+            <div class="badge-top">📚 قواعد علم صرف • الجمع في اللغة العربیة</div>
+            <h1 class="poster-title">أنواع الجمع (انواع جمع)</h1>
+        </header>
+
+        <div class="plural-grid">
+            <!-- ۱. جمع المذکر السالم -->
+            <div class="plural-card">
+                <div class="card-title">جمع المذکر السالم</div>
+                <div class="card-body">
+                    <p class="card-definition">
+                        هو كل جمع يُصاغ بزيادة <strong>واو ونون مفتوحة</strong>، أو <strong>یاء ونون مفتوحة</strong> على آخر مفرده، وسُمّي سالماً؛ لأنّ مفرده سلم من التغییر، مثل:
+                    </p>
+                    <div class="examples-box">
+                        <div class="examples-title">مثال‌های ساخت:</div>
+                        <div class="example-row">
+                            <span>لَاعِبٌ</span>
+                            <span class="highlight-gold">+ ونَ</span>
+                            <span class="example-arrow">=</span>
+                            <span class="highlight-emerald">لَاعِبُ<span class="highlight-gold">ونَ</span></span>
+                        </div>
+                        <div class="example-row">
+                            <span>لَاعِبٌ</span>
+                            <span class="highlight-gold">+ ينَ</span>
+                            <span class="example-arrow">=</span>
+                            <span class="highlight-emerald">لَاعِبِ<span class="highlight-gold">ينَ</span></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ۲. جمع المؤنث السالم -->
+            <div class="plural-card">
+                <div class="card-title">جمع المؤنث السالم</div>
+                <div class="card-body">
+                    <p class="card-definition">
+                        هو كل جمع يُصاغ بزيادة <strong>ألف وتاء</strong> على آخر مفرده بعد حذف تاء التأنیث المربوطة، وسُمّي سالماً؛ لأنّ مفرده سلم من التغییر، مثل:
+                    </p>
+                    <div class="examples-box">
+                        <div class="examples-title">مثال‌های ساخت:</div>
+                        <div class="example-row">
+                            <span>مُعَلِّمَةٌ</span>
+                            <span class="highlight-gold">+ ات</span>
+                            <span class="example-arrow">=</span>
+                            <span class="highlight-emerald">مُعَلِّمَ<span class="highlight-gold">اتٌ</span></span>
+                        </div>
+                        <div class="example-row">
+                            <span>طَالِبَةٌ</span>
+                            <span class="highlight-gold">+ ات</span>
+                            <span class="example-arrow">=</span>
+                            <span class="highlight-emerald">طَالِبَ<span class="highlight-gold">اتٌ</span></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ۳. جمع التکسیر -->
+            <div class="plural-card">
+                <div class="card-title">جمع التکسیر</div>
+                <div class="card-body">
+                    <p class="card-definition">
+                        هو كل جمع تغیّرت فیه صورة مفرده، ویُصاغ على أشکال مختلفة، مثل:
+                    </p>
+                    <div class="examples-box">
+                        <div class="examples-title">مثال‌های تغییر شکل:</div>
+                        <div class="example-row" style="font-size: 1.5rem;">
+                            <span>طَالِبٌ</span>
+                            <span class="example-arrow">⟵</span>
+                            <span class="highlight-purple">طُلَّابٌ</span>
+                        </div>
+                        <div class="example-row" style="font-size: 1.5rem;">
+                            <span>سَاكِنٌ</span>
+                            <span class="example-arrow">⟵</span>
+                            <span class="highlight-purple">سُكَّانٌ</span>
+                        </div>
+                        <div class="example-row" style="font-size: 1.5rem;">
+                            <span>مَدْرَسَةٌ</span>
+                            <span class="example-arrow">⟵</span>
+                            <span class="highlight-purple">مَدَارِسُ</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer class="poster-footer">
+            <span>در زبان عربی، اسم از نظر تعداد به سه دسته مفرد، مثنی و جمع تقسیم می‌شود و جمع خود دارای سه نوع اصلی است.</span>
+            <div class="author-badge">
+                <span class="pen-icon">✒️</span>
+                <div class="author-details">
+                    <span class="author-role">تهیه و تنظیم:</span>
+                    <span class="author-name">یاسر بختیار</span>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="../assets/html2canvas.min.js"></script>
+    <script src="../assets/poster-export.js"></script>
+</body>
+</html>
