@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>ساخت فعل امر</title>
+<meta name="theme-color" content="#b48a1e">
+<link rel="manifest" href="../manifest.webmanifest">
+<link rel="icon" href="../assets/icon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../assets/fonts.css">
+<link rel="stylesheet" href="../assets/theme.css">
+</head>
+<body>
+<script>
+window.ARABIC_RULE = {
+  slug: 'amr',
+  homeUrl: '../index.html',
+  title: 'ساخت فعل امر',
+
+  opening: {
+    html: 'بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ',
+    sub: 'آموزش گام‌به‌گام ساخت فعل امر در زبان عربی'
+  },
+
+  sections: [
+    {
+      tocTitle: '۱. تعریف فعل امر',
+      badge: 'بخش ۱ • مفهوم‌شناسی',
+      title: 'تعریف فعل امر',
+      items: [
+        { html: `<div class="step-row">
+            <span class="step-badge">تعریف</span>
+            <div><strong>فعل امر</strong>، فعلی است که در زمان آینده دلالت بر <strong>طلب و درخواستِ انجام کاری</strong> از مخاطب داشته باشد.</div>
+          </div>` },
+        { type: 'quote', html: `مانند: <span class="ar">انْصُرِ الْمَظْلُومَ</span> یعنی «مظلوم را یاری کن»` },
+        { html: `<div class="step-row">
+            <span class="step-badge gold">نکته کلیدی</span>
+            <div>فعل امرِ مخاطب از <strong>فعل مضارع مخاطب</strong> (صیغه‌هایی که با حرف «<span class="ar">تـ</span>» آغاز می‌شوند) ساخته می‌شود.</div>
+          </div>` }
+      ]
+    },
+    {
+      tocTitle: '۲. گام اول و دوم',
+      badge: 'بخش ۲ • حذف «تـ» و تغییر آخر',
+      title: 'مراحل ساخت فعل امر (گام اول و دوم)',
+      items: [
+        { html: `<div class="step-row">
+            <span class="step-badge">مرحله اول</span>
+            <div><strong>حذف حرف مضارعه:</strong> حرف «<span class="ar">تـ</span>» را از ابتدای فعل مضارع مخاطب حذف می‌کنیم:
+              <span class="flow-box"><span class="ar">تَخْرُجُ</span> <span class="arrow">⟵</span> <span class="ar">خْرُجُ</span></span>
+            </div>
+          </div>` },
+        { html: `<div class="step-row">
+            <span class="step-badge gold">مرحله دوم • ۱</span>
+            <div><span class="tag">آخرِ صحیح</span> اگر آخر فعل صحیح باشد، حرکتِ آخرین حرف حذف شده و <strong>ساکن (ـْ)</strong> می‌شود:
+              <span class="flow-box"><span class="ar">تَجْلِسُ</span> <span class="arrow">⟵</span> <span class="ar">اِجْلِسْ</span></span>
+            </div>
+          </div>` },
+        { html: `<div class="step-row">
+            <span class="step-badge coral">مرحله دوم • ۲</span>
+            <div><span class="tag">معتل‌الآخر</span> اگر آخر فعل یکی از حروف عله (<span class="ar">و، ا، ی</span>) باشد، آن حرف <strong>حذف می‌شود</strong>:
+              <span class="flow-box"><span class="ar">تَدْعُو</span> <span class="arrow">⟵</span> <span class="ar">ادْعُ</span></span>
+              <span class="flow-box"><span class="ar">تَرْمِي</span> <span class="arrow">⟵</span> <span class="ar">ارْمِ</span></span>
+            </div>
+          </div>` },
+        { html: `<div class="step-row">
+            <span class="step-badge blue">مرحله دوم • ۳</span>
+            <div><span class="tag">افعال خمسه</span> اگر فعل از افعال خمسه باشد، <strong>نون اعرابی</strong> از آخر آن حذف می‌شود:
+              <span class="flow-box"><span class="ar">تَلْعَبِينَ</span> <span class="arrow">⟵</span> <span class="ar">اِلْعَبِي</span></span>
+              <span class="flow-box"><span class="ar">تَلْعَبُونَ</span> <span class="arrow">⟵</span> <span class="ar">اِلْعَبُوا</span></span>
+            </div>
+          </div>` }
+      ]
+    },
+    {
+      tocTitle: '۳. گام سوم و چهارم',
+      badge: 'بخش ۳ • همزه وصل',
+      title: 'افزودن همزه و تعیین حرکت آن',
+      items: [
+        { html: `<div class="step-row">
+            <span class="step-badge">مرحله سوم</span>
+            <div><strong>افزودن همزه وصل:</strong> اگر اولین حرف باقی‌مانده <strong>ساکن</strong> باشد، یک همزه به ابتدای فعل می‌آوریم:
+              <span class="flow-box"><span class="ar">تَخْرُجُ</span> <span class="arrow">⟵</span> <span class="ar">اُخْرُجْ</span></span>
+              <span class="flow-box"><span class="ar">تَنْظُرُ</span> <span class="arrow">⟵</span> <span class="ar">اُنْظُرْ</span></span>
+            </div>
+          </div>` },
+        { html: `<div class="step-row">
+            <span class="step-badge blue">مرحله چهارم • ضمّه</span>
+            <div><span class="tag">عین‌الفعل مضموم</span> اگر عین‌الفعل <strong>ضمه</strong> داشته باشد، همزه وصل <strong>ضمه</strong> می‌گیرد:
+              <span class="flow-box"><span class="ar">تَخْرُجُ</span> <span class="arrow">⟵</span> <span class="ar gold">اُ</span><span class="ar">خْرُجْ</span></span>
+            </div>
+          </div>` },
+        { html: `<div class="step-row">
+            <span class="step-badge gold">مرحله چهارم • کسره</span>
+            <div><span class="tag">عین‌الفعل مفتوح یا مکسور</span> اگر عین‌الفعل <strong>فتحه یا کسره</strong> داشته باشد، همزه وصل <strong>کسره</strong> می‌گیرد:
+              <span class="flow-box"><span class="ar">تَضْحَكُ</span> <span class="arrow">⟵</span> <span class="ar">اِضْحَكْ</span></span>
+              <span class="flow-box"><span class="ar">تَجْلِسُ</span> <span class="arrow">⟵</span> <span class="ar">اِجْلِسْ</span></span>
+            </div>
+          </div>` },
+        { html: `<div class="step-row">
+            <span class="step-badge coral">مرحله چهارم • فتحه</span>
+            <div><span class="tag">همزه قطع (باب إفعال)</span> اگر ماضی چهارحرفی با همزه قطع شروع شده باشد، همزه امر <strong>مفتوح (أَ)</strong> است:
+              <span class="flow-box"><span class="ar">تُحْسِنُ</span> <span class="arrow">⟵</span> <span class="ar">أَحْسِنْ</span></span>
+            </div>
+          </div>` }
+      ]
+    },
+    {
+      tocTitle: '۴. التقاء ساکنین',
+      badge: 'بخش ۴ • افعال اجوف',
+      title: 'قاعده التقاء ساکنین',
+      items: [
+        { html: `<div class="step-row">
+            <span class="step-badge coral">قاعده</span>
+            <div>اگر <strong>وسط فعل حرف عله</strong> باشد (فعل اجوف)، هنگام ساکن شدن آخر فعل، برای جلوگیری از برخورد دو ساکن، <strong>حرف عله از وسط حذف می‌شود</strong>.</div>
+          </div>` },
+        { html: `<div class="cards-grid">
+            <div class="mini-card gold">
+              <h4>مثال: <span class="ar">تَزُورُ</span></h4>
+              <p>۱. حذف «تـ» و سکون آخر: <span class="ar">زُورْ</span><br>
+              ۲. حذف عله میانی: <span class="flow-box"><span class="ar">تَزُورُ</span> <span class="arrow">⟵</span> <span class="ar">زُرْ</span></span></p>
+            </div>
+            <div class="mini-card coral">
+              <h4>مثال: <span class="ar">تَنَامُ</span></h4>
+              <p>۱. حذف «تـ» و سکون آخر: <span class="ar">نَامْ</span><br>
+              ۲. حذف عله میانی: <span class="flow-box"><span class="ar">تَنَامُ</span> <span class="arrow">⟵</span> <span class="ar">نَمْ</span></span></p>
+            </div>
+          </div>` }
+      ]
+    },
+    {
+      tocTitle: '۵. دسته‌بندی مثال‌ها',
+      badge: 'بخش ۵ • جمع‌بندی',
+      title: 'دسته‌بندی نهایی مثال‌ها',
+      items: [
+        { html: `<div class="step-row">
+            <span class="step-badge">دسته ۱ — بدون همزه</span>
+            <div>
+              <span class="flow-box"><span class="ar">تَقِفُ</span> <span class="arrow">⟵</span> <span class="ar">قِفْ</span></span>
+              <span class="flow-box"><span class="ar">تَتَعَلَّمُ</span> <span class="arrow">⟵</span> <span class="ar">تَعَلَّمْ</span></span>
+            </div>
+          </div>` },
+        { html: `<div class="step-row">
+            <span class="step-badge gold">دسته ۲ — معتل‌الآخر</span>
+            <div>
+              <span class="flow-box"><span class="ar">تَدْعُو</span> <span class="arrow">⟵</span> <span class="ar">ادْعُ</span></span>
+              <span class="flow-box"><span class="ar">تَرْمِي</span> <span class="arrow">⟵</span> <span class="ar">ارْمِ</span></span>
+              <span class="flow-box"><span class="ar">تَجْرِي</span> <span class="arrow">⟵</span> <span class="ar">اجْرِ</span></span>
+            </div>
+          </div>` },
+        { html: `<div class="step-row">
+            <span class="step-badge coral">دسته ۳ — حذف عله میانی</span>
+            <div>
+              <span class="flow-box"><span class="ar">تَزُورُ</span> <span class="arrow">⟵</span> <span class="ar">زُرْ</span></span>
+              <span class="flow-box"><span class="ar">تَنَامُ</span> <span class="arrow">⟵</span> <span class="ar">نَمْ</span></span>
+            </div>
+          </div>` }
+      ]
+    }
+  ],
+
+  workshop: {
+    tocTitle: '۶. کارگاه تعاملی و آزمون',
+    badge: 'بخش ۶ • تمرین و ارزشیابی',
+    title: 'کارگاه هوشمند ساخت فعل امر و کوییز کلاسی',
+    verbs: [
+      { verb: 'تَخْرُجُ', meaning: 'خارج می‌شوی ⟵ خارج شو!', type: 'صحیح‌الآخر • عین‌الفعل مضموم',
+        s1: 'خْرُجُ', s1Desc: 'حذف «تـ»', s2: 'خْرُجْ', s2Desc: 'سکون آخر',
+        s3: 'اُخْرُجْ', s3Desc: 'همزه وصل با ضمه', final: 'اُخْرُجْ' },
+      { verb: 'تَجْلِسُ', meaning: 'می‌نشینی ⟵ بنشین!', type: 'صحیح‌الآخر • عین‌الفعل مکسور',
+        s1: 'جْلِسُ', s1Desc: 'حذف «تـ»', s2: 'جْلِسْ', s2Desc: 'سکون آخر',
+        s3: 'اِجْلِسْ', s3Desc: 'همزه وصل با کسره', final: 'اِجْلِسْ' },
+      { verb: 'تَدْعُو', meaning: 'فرا می‌خوانی ⟵ بخوان!', type: 'معتل‌الآخر (ناقص واوی)',
+        s1: 'دْعُو', s1Desc: 'حذف «تـ»', s2: 'دْعُ', s2Desc: 'حذف عله آخر',
+        s3: 'اُدْعُ', s3Desc: 'همزه وصل با ضمه', final: 'ادْعُ' },
+      { verb: 'تُحْسِنُ', meaning: 'نیکی می‌کنی ⟵ نیکی کن!', type: 'چهارحرفی (ماضی: أَحْسَنَ)',
+        s1: 'حْسِنُ', s1Desc: 'حذف «تُـ»', s2: 'حْسِنْ', s2Desc: 'سکون آخر',
+        s3: 'أَحْسِنْ', s3Desc: 'همزه قطع مفتوح', final: 'أَحْسِنْ' },
+      { verb: 'تَزُورُ', meaning: 'زیارت می‌کنی ⟵ زیارت کن!', type: 'اجوف • عله میانی',
+        s1: 'زُورُ', s1Desc: 'حذف «تـ»', s2: 'زُورْ', s2Desc: 'سکون آخر',
+        s3: 'زُرْ', s3Desc: 'حذف «و» (التقاء ساکنین)', final: 'زُرْ' },
+      { verb: 'تَلْعَبُونَ', meaning: 'بازی می‌کنید ⟵ بازی کنید!', type: 'افعال خمسه',
+        s1: 'لْعَبُونَ', s1Desc: 'حذف «تـ»', s2: 'لْعَبُوا', s2Desc: 'حذف نون اعرابی',
+        s3: 'اِلْعَبُوا', s3Desc: 'همزه وصل مکسور', final: 'اِلْعَبُوا' }
+    ],
+    quiz: [
+      { q: '۱. فعل امرِ «تَضْحَكُ» کدام است؟',
+        options: ['اُضْحَكْ', 'اِضْحَكْ', 'تَضْحَكْ', 'أَضْحِكْ'], answer: 1,
+        explain: 'عین‌الفعل (حَ) مفتوح است، پس همزه وصل کسره می‌گیرد: اِضْحَكْ.' },
+      { q: '۲. فعل امرِ «تَرْمِي» کدام است؟',
+        options: ['اِرْمِي', 'اُرْمِ', 'ارْمِ', 'رْمِ'], answer: 2,
+        explain: 'در معتل‌الآخر، حرف عله «ي» از آخر حذف می‌شود: ارْمِ.' },
+      { q: '۳. چرا «تَنَامُ» به «نَمْ» تبدیل می‌شود؟',
+        options: ['افعال خمسه', 'التقاء ساکنین و حذف الف میانی', 'معتل‌الآخر', 'همزه قطع'], answer: 1,
+        explain: 'با سکون «م»، دو ساکن (ا + مْ) کنار هم می‌آیند و الف حذف می‌شود.' },
+      { q: '۴. فعل امرِ «تُكْرِمُ» (ماضی: أَكْرَمَ) کدام است؟',
+        options: ['اِكْرِمْ', 'اُكْرُمْ', 'أَكْرِمْ', 'كَرِّمْ'], answer: 2,
+        explain: 'ماضی چهارحرفی با همزه قطع است، پس امر با همزه قطع مفتوح ساخته می‌شود: أَكْرِمْ.' }
+    ]
+  }
+};
+</script>
+<script src="../assets/deck.js"></script>
+<script src="../assets/register-sw.js"></script>
+</body>
+</html>
