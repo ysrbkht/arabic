@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>حروف علت و حروف صحیح — یاسر بختیار</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Scheherazade+New:wght@500;700&family=Vazirmatn:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-page: #f5f2eb;
+            --bg-card: #ffffff;
+            --gold-light: #856812;
+            --gold-main: #b48a1e;
+            --gold-dark: #785a0e;
+            --blue-accent: #0284c7;
+            --emerald-accent: #047857;
+            --rose-accent: #be123c;
+            --text-main: #0f172a;
+            --text-meaning: #334155;
+            --text-dim: #64748b;
+            --border-glow: rgba(180, 138, 30, 0.38);
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: 'Vazirmatn', sans-serif;
+            background-color: var(--bg-page);
+            background-image:
+                radial-gradient(circle at 12% 12%, rgba(212, 175, 55, 0.12) 0%, transparent 45%),
+                radial-gradient(circle at 88% 88%, rgba(4, 120, 87, 0.06) 0%, transparent 45%);
+            color: var(--text-main);
+            min-height: 100vh;
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
+            padding: 1.75rem 1rem;
+        }
+        .toolbar {
+            max-width: 1280px; width: 100%;
+            display: flex; justify-content: space-between; align-items: center;
+            margin-bottom: 1rem; padding: 0 0.5rem;
+            gap: 0.6rem; flex-wrap: wrap;
+        }
+        .toolbar-brand {
+            display: flex; align-items: center; gap: 0.6rem;
+            font-size: 0.9rem; color: var(--text-dim); font-weight: 600;
+        }
+        .toolbar-brand span.dot { width: 10px; height: 10px; border-radius: 50%; background: var(--gold-main); }
+        .toolbar-actions { display: flex; gap: 0.6rem; flex-wrap: wrap; }
+        .btn {
+            background: var(--bg-card);
+            border: 1px solid var(--border-glow);
+            color: var(--text-main);
+            font-family: 'Vazirmatn', sans-serif;
+            font-size: 0.85rem; font-weight: 600;
+            padding: 0.5rem 1.15rem; border-radius: 999px;
+            cursor: pointer;
+            display: inline-flex; align-items: center; gap: 0.45rem;
+            transition: all 0.2s ease;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+            text-decoration: none;
+        }
+        .btn:hover {
+            border-color: var(--gold-main);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 18px rgba(180, 138, 30, 0.18);
+        }
+        .poster-board {
+            max-width: 1280px; width: 100%;
+            background: var(--bg-card);
+            border: 1.5px solid var(--border-glow);
+            border-radius: 28px;
+            padding: 2.75rem 2.5rem 2.25rem;
+            position: relative; overflow: hidden;
+            box-shadow: 0 20px 50px rgba(15, 23, 42, 0.07);
+        }
+        .corner-ornament { position: absolute; width: 70px; height: 70px; pointer-events: none; opacity: 0.45; }
+        .corner-tl { top: 14px; left: 14px; border-top: 2px solid var(--gold-main); border-left: 2px solid var(--gold-main); border-top-left-radius: 16px; }
+        .corner-tr { top: 14px; right: 14px; border-top: 2px solid var(--gold-main); border-right: 2px solid var(--gold-main); border-top-right-radius: 16px; }
+        .corner-bl { bottom: 14px; left: 14px; border-bottom: 2px solid var(--gold-main); border-left: 2px solid var(--gold-main); border-bottom-left-radius: 16px; }
+        .corner-br { bottom: 14px; right: 14px; border-bottom: 2px solid var(--gold-main); border-right: 2px solid var(--gold-main); border-bottom-right-radius: 16px; }
+        .poster-header { text-align: center; margin-bottom: 2.25rem; }
+        .badge-top {
+            display: inline-flex; align-items: center; gap: 0.5rem;
+            padding: 0.35rem 1.15rem; border-radius: 999px;
+            background: rgba(180, 138, 30, 0.1);
+            border: 1px solid rgba(180, 138, 30, 0.3);
+            color: var(--gold-light); font-size: 0.85rem; font-weight: 600;
+            margin-bottom: 0.8rem;
+        }
+        .poster-title {
+            font-size: 2.15rem; font-weight: 800;
+            background: linear-gradient(135deg, #0f172a 0%, #856812 60%, #b48a1e 100%);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            margin-bottom: 0.65rem;
+        }
+        .poster-subtitle {
+            color: var(--text-dim); font-size: 0.9rem;
+            display: flex; justify-content: center; align-items: center;
+            gap: 1.5rem; flex-wrap: wrap;
+        }
+        .legend-item { display: inline-flex; align-items: center; gap: 0.4rem; font-size: 0.84rem; }
+        .legend-dot { width: 9px; height: 9px; border-radius: 50%; }
+        .letters-comparison-grid {
+            display: grid; grid-template-columns: 1fr 1.15fr;
+            gap: 2rem; margin-bottom: 2.25rem;
+        }
+        .main-panel {
+            background: #faf9f5;
+            border: 1px solid rgba(15, 23, 42, 0.09);
+            border-radius: 22px;
+            padding: 1.5rem 1.6rem;
+            display: flex; flex-direction: column; justify-content: space-between;
+            box-shadow: 0 6px 20px rgba(15, 23, 42, 0.03);
+        }
+        .panel-illat { border-top: 4px solid var(--rose-accent); }
+        .panel-sahih { border-top: 4px solid var(--emerald-accent); }
+        .panel-header {
+            display: flex; justify-content: space-between; align-items: center;
+            margin-bottom: 1rem; padding-bottom: 0.75rem;
+            border-bottom: 1px dashed rgba(180, 138, 30, 0.3);
+        }
+        .panel-title-group { display: flex; align-items: center; gap: 0.65rem; }
+        .panel-title { font-size: 1.3rem; font-weight: 800; color: var(--text-main); }
+        .panel-count-badge { font-size: 0.78rem; font-weight: 700; padding: 0.2rem 0.75rem; border-radius: 99px; }
+        .panel-illat .panel-count-badge { background: rgba(190, 18, 60, 0.12); color: var(--rose-accent); border: 1px solid rgba(190, 18, 60, 0.25); }
+        .panel-sahih .panel-count-badge { background: rgba(4, 120, 87, 0.12); color: var(--emerald-accent); border: 1px solid rgba(4, 120, 87, 0.25); }
+        .panel-desc { font-size: 0.88rem; color: var(--text-meaning); line-height: 1.65; margin-bottom: 1.15rem; }
+        .illat-brace-box {
+            display: flex; align-items: center; justify-content: space-between;
+            background: #ffffff;
+            border: 1px solid rgba(15, 23, 42, 0.08);
+            border-radius: 18px;
+            padding: 1rem 1.25rem;
+            margin-bottom: 1rem;
+        }
+        .way-badge-box { text-align: center; min-width: 95px; }
+        .way-word {
+            font-family: 'Scheherazade New', serif;
+            font-size: 2.6rem; font-weight: 700;
+            color: var(--rose-accent);
+            line-height: 1.1;
+        }
+        .way-caption { font-size: 0.75rem; color: var(--text-dim); font-weight: 600; }
+        .curly-brace-svg { width: 32px; height: 195px; flex-shrink: 0; margin: 0 0.5rem; }
+        .curly-brace-svg path { fill: none; stroke: url(#goldGrad); stroke-width: 2.6; stroke-linecap: round; }
+        .illat-letters-list { flex: 1; display: flex; flex-direction: column; gap: 0.6rem; }
+        .illat-row {
+            display: flex; align-items: center; justify-content: space-between;
+            background: #faf9f5;
+            border: 1px solid rgba(190, 18, 60, 0.15);
+            border-radius: 12px;
+            padding: 0.35rem 0.9rem;
+        }
+        .illat-char {
+            font-family: 'Scheherazade New', serif;
+            font-size: 2.2rem; font-weight: 700;
+            color: var(--rose-accent);
+            line-height: 1.1;
+            min-width: 45px; text-align: center;
+        }
+        .illat-info {
+            flex: 1;
+            border-right: 2px solid rgba(180, 138, 30, 0.25);
+            padding-right: 0.75rem;
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .illat-name { font-size: 0.9rem; font-weight: 700; color: var(--text-main); }
+        .illat-example {
+            font-family: 'Scheherazade New', serif;
+            font-size: 1.55rem; font-weight: 700;
+            color: var(--text-meaning);
+        }
+        .sahih-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 0.55rem;
+            background: #ffffff;
+            border: 1px solid rgba(15, 23, 42, 0.08);
+            border-radius: 18px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+        }
+        .sahih-cell {
+            background: #faf9f5;
+            border: 1px solid rgba(4, 120, 87, 0.18);
+            border-radius: 10px;
+            height: 44px;
+            display: flex; align-items: center; justify-content: center;
+            font-family: 'Scheherazade New', serif;
+            font-size: 1.85rem; font-weight: 700;
+            color: var(--emerald-accent);
+            transition: all 0.2s ease;
+        }
+        .sahih-cell.hamza-highlight {
+            background: rgba(2, 132, 199, 0.08);
+            border-color: var(--blue-accent);
+            color: var(--blue-accent);
+        }
+        .note-callout {
+            background: rgba(180, 138, 30, 0.08);
+            border-right: 3px solid var(--gold-main);
+            border-radius: 10px;
+            padding: 0.6rem 0.9rem;
+            font-size: 0.8rem;
+            color: var(--text-meaning);
+            line-height: 1.6;
+        }
+        .note-callout strong { color: var(--gold-dark); }
+        .section-divider-title {
+            text-align: center; font-size: 1.2rem; font-weight: 800;
+            color: var(--gold-dark); margin-bottom: 1.25rem;
+            position: relative;
+        }
+        .verbs-classification-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+        .class-card {
+            background: #faf9f5;
+            border: 1px solid rgba(15, 23, 42, 0.09);
+            border-radius: 22px;
+            padding: 1.35rem 1.4rem;
+            display: flex; align-items: center; justify-content: space-between;
+        }
+        .class-card.col-left { flex-direction: row-reverse; }
+        .class-title-box {
+            min-width: 110px; text-align: center;
+            display: flex; flex-direction: column;
+            align-items: center; gap: 0.35rem;
+        }
+        .class-title-ar { font-size: 1.2rem; font-weight: 800; color: var(--gold-light); }
+        .class-sub {
+            font-size: 0.72rem; padding: 0.15rem 0.6rem; border-radius: 99px;
+            background: rgba(180, 138, 30, 0.12); color: var(--gold-dark);
+            border: 1px solid rgba(180, 138, 30, 0.25);
+            font-weight: 600;
+        }
+        .types-list { flex: 1; display: flex; flex-direction: column; gap: 0.65rem; }
+        .type-row {
+            display: flex; align-items: center; justify-content: space-between;
+            background: #ffffff;
+            border: 1px solid rgba(15, 23, 42, 0.08);
+            padding: 0.45rem 0.95rem;
+            border-radius: 13px;
+            gap: 0.7rem;
+        }
+        .col-left .type-row { flex-direction: row-reverse; }
+        .type-name-badge { font-size: 0.88rem; font-weight: 800; color: var(--text-main); min-width: 92px; }
+        .col-left .type-name-badge { text-align: left; }
+        .type-definition {
+            font-size: 0.8rem; color: var(--text-meaning); flex: 1;
+            border-right: 2px solid rgba(180, 138, 30, 0.25);
+            padding-right: 0.7rem;
+        }
+        .col-left .type-definition {
+            border-right: none;
+            border-left: 2px solid rgba(180, 138, 30, 0.25);
+            padding-right: 0; padding-left: 0.7rem;
+        }
+        .type-examples {
+            font-family: 'Scheherazade New', serif;
+            font-size: 1.75rem; font-weight: 700;
+            color: var(--text-main);
+            white-space: nowrap; line-height: 1.2;
+        }
+        .c-illat { color: var(--rose-accent); }
+        .c-sahih { color: var(--emerald-accent); }
+        .c-hamza { color: var(--blue-accent); }
+        .poster-footer {
+            margin-top: 2.25rem; padding-top: 1.25rem;
+            border-top: 1px dashed rgba(180, 138, 30, 0.35);
+            display: flex; justify-content: space-between; align-items: center;
+            font-size: 0.84rem; color: var(--text-dim);
+            flex-wrap: wrap; gap: 1rem;
+        }
+        .author-badge {
+            display: inline-flex; align-items: center; gap: 0.65rem;
+            background: linear-gradient(135deg, rgba(180, 138, 30, 0.12), rgba(180, 138, 30, 0.03));
+            border: 1px solid var(--gold-main);
+            padding: 0.45rem 1.15rem; border-radius: 14px;
+            box-shadow: 0 4px 12px rgba(180, 138, 30, 0.1);
+        }
+        .author-badge .pen-icon { color: var(--gold-main); font-size: 1.1rem; }
+        .author-badge .author-details { display: flex; flex-direction: column; line-height: 1.3; }
+        .author-badge .author-role { font-size: 0.68rem; color: var(--text-dim); font-weight: 400; }
+        .author-badge .author-name { font-size: 0.98rem; font-weight: 800; color: var(--gold-dark); letter-spacing: 0.2px; }
+        @media (max-width: 1060px) {
+            .letters-comparison-grid,
+            .verbs-classification-grid { grid-template-columns: 1fr; }
+            .class-card.col-left,
+            .col-left .type-row { flex-direction: row; }
+            .col-left .type-name-badge { text-align: right; }
+            .col-left .type-definition {
+                border-left: none;
+                border-right: 2px solid rgba(180, 138, 30, 0.25);
+                padding-left: 0; padding-right: 0.7rem;
+            }
+            .col-left .curly-brace-svg { transform: scaleX(1) !important; }
+            .poster-footer { flex-direction: column; text-align: center; }
+        }
+        @media print {
+            body { background: #fff !important; padding: 0; }
+            .toolbar { display: none !important; }
+            .poster-board { box-shadow: none !important; border: 2px solid #b48a1e !important; }
+        }
+    </style>
+</head>
+<body>
+
+    <svg width="0" height="0" style="position:absolute">
+        <defs>
+            <linearGradient id="goldGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stop-color="#d4af37" />
+                <stop offset="50%" stop-color="#b48a1e" />
+                <stop offset="100%" stop-color="#785a0e" />
+            </linearGradient>
+        </defs>
+    </svg>
+
+    <div class="toolbar">
+        <div class="toolbar-brand">
+            <span class="dot"></span>
+            <span>لوح آموزشی علم صرف • حروف علت و حروف صحیح و اقسام فعل</span>
+        </div>
+        <div class="toolbar-actions">
+            <a class="btn" href="../index.html" title="بازگشت به فهرست">🏠 فهرست</a>
+            <button class="btn" id="imgBtn" onclick="downloadHighResImage()">
+                <span>🖼️</span>
+                <span>دانلود عکس با کیفیت بالا (PNG)</span>
+            </button>
+            <button class="btn" onclick="window.print()">
+                <span>🖨️</span>
+                <span>چاپ / ذخیره PDF</span>
+            </button>
+        </div>
+    </div>
+
+    <div class="poster-board">
+        <div class="corner-ornament corner-tl"></div>
+        <div class="corner-ornament corner-tr"></div>
+        <div class="corner-ornament corner-bl"></div>
+        <div class="corner-ornament corner-br"></div>
+
+        <header class="poster-header">
+            <div class="badge-top">📚 قواعد پایه علم صرف • الحروف المعتلة والحروف الصحیحة</div>
+            <h1 class="poster-title">حروف علّت و حروف صحیح در علم صرف</h1>
+            <div class="poster-subtitle">
+                <span class="legend-item"><span class="legend-dot" style="background: var(--rose-accent);"></span>حروف علّت (و، ا، ي) = ۳ حرف</span>
+                <span class="legend-item"><span class="legend-dot" style="background: var(--emerald-accent);"></span>حروف صحیح (سایر حروف) = ۲۵ حرف</span>
+                <span class="legend-item"><span class="legend-dot" style="background: var(--blue-accent
